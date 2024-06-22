@@ -66,9 +66,20 @@
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
-      preloader.remove();
+      const minimumDelay = 2000; // Minimum delay in milliseconds (e.g., 2000ms = 2 seconds)
+      const fadeOutDuration = 600; // Fade out duration in milliseconds
+
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.remove();
+        }, fadeOutDuration);
+      }, minimumDelay);
     });
   }
+
+
+
 
   /**
    * Scroll top button
